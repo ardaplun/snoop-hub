@@ -7,7 +7,7 @@ interface LoaderType {
 }
 export const Loader = ({ fullPage = false }: LoaderType) => {
   return (
-    <div className={`loader ${fullPage ? 'fullPage' : ''}`}>
+    <div className={`loader ${fullPage ? 'fullPage' : ''}`} data-testid='loader'>
       <Spin size="large" />
     </div>
   );

@@ -1,0 +1,828 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserPage /> properly show loader when loading user the repos 1`] = `
+<DocumentFragment>
+  <main
+    class="container"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+      style="border-bottom: 1px solid #ccc; width: 100%;"
+    >
+      <div
+        class="ant-page-header-heading"
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <div
+            class="ant-page-header-back"
+          >
+            <div
+              aria-label="Back"
+              class="ant-page-header-back-button"
+              role="button"
+              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+              tabindex="0"
+            >
+              <span
+                aria-label="arrow-left"
+                class="anticon anticon-arrow-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="arrow-left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <span
+            class="ant-page-header-heading-title"
+            title="Welcome to ardaplun page"
+          >
+            Welcome to ardaplun page
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="loader "
+      data-testid="loader"
+    >
+      <div
+        class="ant-spin ant-spin-lg ant-spin-spinning"
+      >
+        <span
+          class="ant-spin-dot ant-spin-dot-spin"
+        >
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+        </span>
+      </div>
+    </div>
+    <h4
+      class="ant-typography"
+    />
+    <div
+      class="Toastify"
+    />
+  </main>
+</DocumentFragment>
+`;
+
+exports[`<UserPage /> show the repos 1`] = `
+<DocumentFragment>
+  <main
+    class="container"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+      style="border-bottom: 1px solid #ccc; width: 100%;"
+    >
+      <div
+        class="ant-page-header-heading"
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <div
+            class="ant-page-header-back"
+          >
+            <div
+              aria-label="Back"
+              class="ant-page-header-back-button"
+              role="button"
+              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+              tabindex="0"
+            >
+              <span
+                aria-label="arrow-left"
+                class="anticon anticon-arrow-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="arrow-left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <span
+            class="ant-page-header-heading-title"
+            title="Welcome to ardaplun page"
+          >
+            Welcome to ardaplun page
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row"
+      data-testid="repos-list"
+      style="padding: 40px 16px; overflow-y: auto;"
+    >
+      <div
+        class="ant-col ant-col-24"
+        data-testid="repos"
+        style="border: 1px solid #ccc; padding: 16px; margin-bottom: 16px;"
+      >
+        <h4
+          class="ant-typography"
+          data-testid="repo-title-bemslaravel"
+        >
+          bemslaravel
+        </h4>
+        <p
+          style="font-weight: 600;"
+        >
+          Building energy monitoring system using laravel
+        </p>
+        <span>
+          Last update: 1/23/2020, 7:34:38 PM
+        </span>
+        <br />
+        <span />
+        <div
+          class="ant-row ant-row-space-around ant-row-middle"
+          style="margin: 16px 0px 0px;"
+        >
+          <button
+            class="ant-btn ant-dropdown-trigger"
+            style="background-color: rgb(82, 196, 26); color: white;"
+            type="button"
+          >
+            <span>
+              Download
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-clone-bemslaravel"
+            style="background-color: rgb(19, 194, 194); color: white;"
+            type="button"
+          >
+            <span>
+              Clone
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-readme-bemslaravel"
+            style="background-color: rgb(24, 144, 255); color: white;"
+            type="button"
+          >
+            <span>
+              Readme
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-24"
+        data-testid="repos"
+        style="border: 1px solid #ccc; padding: 16px; margin-bottom: 16px;"
+      >
+        <h4
+          class="ant-typography"
+          data-testid="repo-title-bvapp"
+        >
+          bvapp
+        </h4>
+        <p
+          style="font-weight: 600;"
+        >
+          MVP React Native App for Microsoft Imagine Cup Asia Pacific Region 2018
+        </p>
+        <span>
+          Last update: 1/23/2020, 7:34:38 PM
+        </span>
+        <br />
+        <span>
+          Language: JavaScript
+        </span>
+        <div
+          class="ant-row ant-row-space-around ant-row-middle"
+          style="margin: 16px 0px 0px;"
+        >
+          <button
+            class="ant-btn ant-dropdown-trigger"
+            style="background-color: rgb(82, 196, 26); color: white;"
+            type="button"
+          >
+            <span>
+              Download
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-clone-bvapp"
+            style="background-color: rgb(19, 194, 194); color: white;"
+            type="button"
+          >
+            <span>
+              Clone
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-readme-bvapp"
+            style="background-color: rgb(24, 144, 255); color: white;"
+            type="button"
+          >
+            <span>
+              Readme
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-24"
+        data-testid="repos"
+        style="border: 1px solid #ccc; padding: 16px; margin-bottom: 16px;"
+      >
+        <h4
+          class="ant-typography"
+          data-testid="repo-title-company-list-app"
+        >
+          company-list-app
+        </h4>
+        <p
+          style="font-weight: 600;"
+        >
+          React-Redux UI for showing company listing. Using FeathersJs as the backend 
+        </p>
+        <span>
+          Last update: 1/23/2020, 7:34:38 PM
+        </span>
+        <br />
+        <span>
+          Language: JavaScript
+        </span>
+        <div
+          class="ant-row ant-row-space-around ant-row-middle"
+          style="margin: 16px 0px 0px;"
+        >
+          <button
+            class="ant-btn ant-dropdown-trigger"
+            style="background-color: rgb(82, 196, 26); color: white;"
+            type="button"
+          >
+            <span>
+              Download
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-clone-company-list-app"
+            style="background-color: rgb(19, 194, 194); color: white;"
+            type="button"
+          >
+            <span>
+              Clone
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-readme-company-list-app"
+            style="background-color: rgb(24, 144, 255); color: white;"
+            type="button"
+          >
+            <span>
+              Readme
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-24"
+        data-testid="repos"
+        style="border: 1px solid #ccc; padding: 16px; margin-bottom: 16px;"
+      >
+        <h4
+          class="ant-typography"
+          data-testid="repo-title-feathers-company-list"
+        >
+          feathers-company-list
+        </h4>
+        <p
+          style="font-weight: 600;"
+        >
+          FeathersJs backend for company-list app
+        </p>
+        <span>
+          Last update: 1/23/2020, 7:34:38 PM
+        </span>
+        <br />
+        <span>
+          Language: HTML
+        </span>
+        <div
+          class="ant-row ant-row-space-around ant-row-middle"
+          style="margin: 16px 0px 0px;"
+        >
+          <button
+            class="ant-btn ant-dropdown-trigger"
+            style="background-color: rgb(82, 196, 26); color: white;"
+            type="button"
+          >
+            <span>
+              Download
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-clone-feathers-company-list"
+            style="background-color: rgb(19, 194, 194); color: white;"
+            type="button"
+          >
+            <span>
+              Clone
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-readme-feathers-company-list"
+            style="background-color: rgb(24, 144, 255); color: white;"
+            type="button"
+          >
+            <span>
+              Readme
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-24"
+        data-testid="repos"
+        style="border: 1px solid #ccc; padding: 16px; margin-bottom: 16px;"
+      >
+        <h4
+          class="ant-typography"
+          data-testid="repo-title-gcal-time-selector"
+        >
+          gcal-time-selector
+        </h4>
+        <p
+          style="font-weight: 600;"
+        >
+          Google Calendar Like Time Selector
+        </p>
+        <span>
+          Last update: 1/23/2020, 7:34:38 PM
+        </span>
+        <br />
+        <span>
+          Language: TypeScript
+        </span>
+        <div
+          class="ant-row ant-row-space-around ant-row-middle"
+          style="margin: 16px 0px 0px;"
+        >
+          <button
+            class="ant-btn ant-dropdown-trigger"
+            style="background-color: rgb(82, 196, 26); color: white;"
+            type="button"
+          >
+            <span>
+              Download
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-clone-gcal-time-selector"
+            style="background-color: rgb(19, 194, 194); color: white;"
+            type="button"
+          >
+            <span>
+              Clone
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-readme-gcal-time-selector"
+            style="background-color: rgb(24, 144, 255); color: white;"
+            type="button"
+          >
+            <span>
+              Readme
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-24"
+        data-testid="repos"
+        style="border: 1px solid #ccc; padding: 16px; margin-bottom: 16px;"
+      >
+        <h4
+          class="ant-typography"
+          data-testid="repo-title-pokepedia"
+        >
+          pokepedia
+        </h4>
+        <p
+          style="font-weight: 600;"
+        >
+          listing Pokemon and the details of each Pokemon. With this you can understand better your Pokemon
+        </p>
+        <span>
+          Last update: 1/23/2020, 7:34:38 PM
+        </span>
+        <br />
+        <span>
+          Language: TypeScript
+        </span>
+        <div
+          class="ant-row ant-row-space-around ant-row-middle"
+          style="margin: 16px 0px 0px;"
+        >
+          <button
+            class="ant-btn ant-dropdown-trigger"
+            style="background-color: rgb(82, 196, 26); color: white;"
+            type="button"
+          >
+            <span>
+              Download
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-clone-pokepedia"
+            style="background-color: rgb(19, 194, 194); color: white;"
+            type="button"
+          >
+            <span>
+              Clone
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-readme-pokepedia"
+            style="background-color: rgb(24, 144, 255); color: white;"
+            type="button"
+          >
+            <span>
+              Readme
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-24"
+        data-testid="repos"
+        style="border: 1px solid #ccc; padding: 16px; margin-bottom: 16px;"
+      >
+        <h4
+          class="ant-typography"
+          data-testid="repo-title-react-big-scheduler"
+        >
+          react-big-scheduler
+        </h4>
+        <p
+          style="font-weight: 600;"
+        >
+          A scheduler and resource planning component built for React and made for modern browsers (IE10+)
+        </p>
+        <span>
+          Last update: 1/23/2020, 7:34:38 PM
+        </span>
+        <br />
+        <span>
+          Language: JavaScript
+        </span>
+        <div
+          class="ant-row ant-row-space-around ant-row-middle"
+          style="margin: 16px 0px 0px;"
+        >
+          <button
+            class="ant-btn ant-dropdown-trigger"
+            style="background-color: rgb(82, 196, 26); color: white;"
+            type="button"
+          >
+            <span>
+              Download
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-clone-react-big-scheduler"
+            style="background-color: rgb(19, 194, 194); color: white;"
+            type="button"
+          >
+            <span>
+              Clone
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-readme-react-big-scheduler"
+            style="background-color: rgb(24, 144, 255); color: white;"
+            type="button"
+          >
+            <span>
+              Readme
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-24"
+        data-testid="repos"
+        style="border: 1px solid #ccc; padding: 16px; margin-bottom: 16px;"
+      >
+        <h4
+          class="ant-typography"
+          data-testid="repo-title-snoop-hub"
+        >
+          snoop-hub
+        </h4>
+        <p
+          style="font-weight: 600;"
+        >
+          Github minimal feature for search users and see their repos.
+        </p>
+        <span>
+          Last update: 1/23/2020, 7:34:38 PM
+        </span>
+        <br />
+        <span>
+          Language: TypeScript
+        </span>
+        <div
+          class="ant-row ant-row-space-around ant-row-middle"
+          style="margin: 16px 0px 0px;"
+        >
+          <button
+            class="ant-btn ant-dropdown-trigger"
+            style="background-color: rgb(82, 196, 26); color: white;"
+            type="button"
+          >
+            <span>
+              Download
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-clone-snoop-hub"
+            style="background-color: rgb(19, 194, 194); color: white;"
+            type="button"
+          >
+            <span>
+              Clone
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-readme-snoop-hub"
+            style="background-color: rgb(24, 144, 255); color: white;"
+            type="button"
+          >
+            <span>
+              Readme
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-24"
+        data-testid="repos"
+        style="border: 1px solid #ccc; padding: 16px; margin-bottom: 16px;"
+      >
+        <h4
+          class="ant-typography"
+          data-testid="repo-title-tentaweb"
+        >
+          tentaweb
+        </h4>
+        <p
+          style="font-weight: 600;"
+        >
+          gatsbyjs looking around
+        </p>
+        <span>
+          Last update: 1/23/2020, 7:34:38 PM
+        </span>
+        <br />
+        <span>
+          Language: HTML
+        </span>
+        <div
+          class="ant-row ant-row-space-around ant-row-middle"
+          style="margin: 16px 0px 0px;"
+        >
+          <button
+            class="ant-btn ant-dropdown-trigger"
+            style="background-color: rgb(82, 196, 26); color: white;"
+            type="button"
+          >
+            <span>
+              Download
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-clone-tentaweb"
+            style="background-color: rgb(19, 194, 194); color: white;"
+            type="button"
+          >
+            <span>
+              Clone
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-readme-tentaweb"
+            style="background-color: rgb(24, 144, 255); color: white;"
+            type="button"
+          >
+            <span>
+              Readme
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-24"
+        data-testid="repos"
+        style="border: 1px solid #ccc; padding: 16px; margin-bottom: 16px;"
+      >
+        <h4
+          class="ant-typography"
+          data-testid="repo-title-timepicker-google-calendar"
+        >
+          timepicker-google-calendar
+        </h4>
+        <p
+          style="font-weight: 600;"
+        >
+          Timepicker like in the google calendar
+        </p>
+        <span>
+          Last update: 1/23/2020, 7:34:38 PM
+        </span>
+        <br />
+        <span />
+        <div
+          class="ant-row ant-row-space-around ant-row-middle"
+          style="margin: 16px 0px 0px;"
+        >
+          <button
+            class="ant-btn ant-dropdown-trigger"
+            style="background-color: rgb(82, 196, 26); color: white;"
+            type="button"
+          >
+            <span>
+              Download
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-clone-timepicker-google-calendar"
+            style="background-color: rgb(19, 194, 194); color: white;"
+            type="button"
+          >
+            <span>
+              Clone
+            </span>
+          </button>
+          <button
+            class="ant-btn"
+            data-testid="repo-readme-timepicker-google-calendar"
+            style="background-color: rgb(24, 144, 255); color: white;"
+            type="button"
+          >
+            <span>
+              Readme
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="Toastify"
+    />
+  </main>
+</DocumentFragment>
+`;
+
+exports[`<UserPage /> show the repos readme 1`] = `
+<DocumentFragment>
+  <main
+    class="container"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+      style="border-bottom: 1px solid #ccc; width: 100%;"
+    >
+      <div
+        class="ant-page-header-heading"
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <div
+            class="ant-page-header-back"
+          >
+            <div
+              aria-label="Back"
+              class="ant-page-header-back-button"
+              role="button"
+              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+              tabindex="0"
+            >
+              <span
+                aria-label="arrow-left"
+                class="anticon anticon-arrow-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="arrow-left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <span
+            class="ant-page-header-heading-title"
+            title="snoop-hub Readme"
+          >
+            snoop-hub Readme
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="loader fullPage"
+      data-testid="loader"
+    >
+      <div
+        class="ant-spin ant-spin-lg ant-spin-spinning"
+      >
+        <span
+          class="ant-spin-dot ant-spin-dot-spin"
+        >
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+        </span>
+      </div>
+    </div>
+    <div
+      style="text-align: left; padding: 40px 16px; overflow: auto; width: 100%;"
+    />
+    <div
+      class="Toastify"
+    />
+  </main>
+</DocumentFragment>
+`;

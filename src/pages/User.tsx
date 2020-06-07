@@ -26,6 +26,7 @@ export const UserPage = () => {
         setIsLoading(false);
         toastError(err.message);
       });
+      return setRepos([])
   }, [userName, setRepos]);
 
   const downloadHandler = (repoName:string, format:any) => {
@@ -58,11 +59,18 @@ export const UserPage = () => {
       />
       {isLoading && <Loader />}
       {repos && repos.length > 0 ? (
-        <Row style={{ padding: '40px 16px', overflowY: 'auto' }}>
+        <Row style={{ padding: '40px 16px', overflowY: 'auto' }} data-testid={`repos-list`}>
           {repos.map((repo: RepoType) => {
             return (
-              <Col span={24} key={repo.id} style={{ border: '1px solid #ccc', padding: '16px', marginBottom: '16px' }}>
-                <Title level={4}>{repo.name}</Title>
+              <Col
+                span={24}
+                key={repo.id}
+                style={{ border: '1px solid #ccc', padding: '16px', marginBottom: '16px' }}
+                data-testid={`repos`}
+              >
+                <Title level={4} data-testid={`repo-title-${repo.name}`}>
+                  {repo.name}
+                </Title>
                 <p style={{ fontWeight: 600 }}>{repo.description}</p>
                 <span>Last update: {new Date('2020-01-23T12:34:38Z').toLocaleString()}</span>
                 <br />
@@ -81,12 +89,14 @@ export const UserPage = () => {
                   <Button
                     style={{ backgroundColor: '#13c2c2', color: 'white' }}
                     onClick={() => cloneHanlder(repo.clone_url)}
+                    data-testid={`repo-clone-${repo.name}`}
                   >
                     Clone
                   </Button>
                   <Button
                     style={{ backgroundColor: '#1890ff', color: 'white' }}
                     onClick={() => history.push(`${userName}/repo/${repo.name}`)}
+                    data-testid={`repo-readme-${repo.name}`}
                   >
                     Readme
                   </Button>
