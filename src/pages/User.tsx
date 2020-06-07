@@ -1,44 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Row, Col, Typography, Button, PageHeader, Menu, Dropdown } from 'antd';
 import { useParams, useHistory } from 'react-router-dom';
 import Container from '../components/container';
 import { getAPI } from '../api/api-method';
 import { API_URL } from '../api/api-url';
 import Loader from '../components/loader';
+import { RepoType, RepoContext } from '../context/repoContext';
 const { Title } = Typography;
-
-interface RepoType {
-  id: string;
-  name: string;
-  clone_url: string;
-  downloads_url: string;
-  description: string;
-  language: string;
-  updated_at: string;
-}
 
 export const UserPage = () => {
   const { userName } = useParams();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [projects, setProjects] = useState<Array<RepoType>>([]);
   const history = useHistory()
+  const {repos, setRepos} = useContext(RepoContext);
 
   useEffect(() => {
     setIsLoading(true);
     getAPI(API_URL.USER_REPOS(userName))
       .then((resp: any) => {
         setIsLoading(false);
-        setProjects(resp);
+        setRepos(resp);
       })
       .catch((err: any) => {
         setIsLoading(false);
         alert(err.message);
       });
-  }, [userName]);
+  }, [userName, setRepos]);
 
   const downloadHandler = (repoName:string, format:any) => {
     getAPI(API_URL.DOWNLOAD_REPO(userName, repoName, format))
-      .then((resp: any) => {
+      .then(() => {
         setIsLoading(false);
       })
       .catch((err: any) => {
@@ -65,24 +56,20 @@ export const UserPage = () => {
         style={{ borderBottom: '1px solid #ccc', width: '100%' }}
       />
       {isLoading && <Loader />}
-      {projects.length > 0 ? (
-        <Row style={{ padding: '40px 16px', overflowY:'auto' }}>
-          {projects.map((project: RepoType) => {
+      {repos && repos.length > 0 ? (
+        <Row style={{ padding: '40px 16px', overflowY: 'auto' }}>
+          {repos.map((repo: RepoType) => {
             return (
-              <Col
-                span={24}
-                key={project.id}
-                style={{ border: '1px solid #ccc', padding: '16px', marginBottom: '16px' }}
-              >
-                <Title level={4}>{project.name}</Title>
-                <p style={{ fontWeight: 600 }}>{project.description}</p>
+              <Col span={24} key={repo.id} style={{ border: '1px solid #ccc', padding: '16px', marginBottom: '16px' }}>
+                <Title level={4}>{repo.name}</Title>
+                <p style={{ fontWeight: 600 }}>{repo.description}</p>
                 <span>Last update: {new Date('2020-01-23T12:34:38Z').toLocaleString()}</span>
                 <br />
-                <span>{project.language && `Language: ${project.language}`}</span>
+                <span>{repo.language && `Language: ${repo.language}`}</span>
                 <Row justify="space-around" align="middle" style={{ margin: '16px 0 0' }}>
                   <Dropdown
                     overlay={
-                      <Menu onClick={({ key }: { key: string }) => downloadHandler(project.name, key)}>
+                      <Menu onClick={({ key }: { key: string }) => downloadHandler(repo.name, key)}>
                         <Menu.Item key="tarball">Download Tar</Menu.Item>
                         <Menu.Item key="zipball">Download Zip</Menu.Item>
                       </Menu>
@@ -92,13 +79,13 @@ export const UserPage = () => {
                   </Dropdown>
                   <Button
                     style={{ backgroundColor: '#13c2c2', color: 'white' }}
-                    onClick={() => cloneHanlder(project.clone_url)}
+                    onClick={() => cloneHanlder(repo.clone_url)}
                   >
                     Clone
                   </Button>
                   <Button
                     style={{ backgroundColor: '#1890ff', color: 'white' }}
-                    onClick={() => history.push(`${userName}/repo/${project.name}`)}
+                    onClick={() => history.push(`${userName}/repo/${repo.name}`)}
                   >
                     Readme
                   </Button>

@@ -1,10 +1,12 @@
-import React, { useState, Fragment, useEffect } from 'react';
+import React, { useState, Fragment, useEffect, useContext } from 'react';
 import { Input, Row, Col, Pagination, Typography } from 'antd';
 import Container from '../components/container';
 import { getAPI } from '../api/api-method';
 import { API_URL } from '../api/api-url';
 import Loader from '../components/loader';
 import { useHistory } from 'react-router-dom';
+import { UserContext } from '../context/userContext';
+import { toastError } from '../utils/toast';
 const { Search } = Input;
 const { Title } = Typography;
 
@@ -20,32 +22,37 @@ interface SearchUsersType {
   total_count: number;
 }
 export const HomePage = () => {
-  const [totalCount, setTotalCount] = useState<string>('');
-  const [results, setResult] = useState<Array<User>>([]);
+  const [isFirst, setIsFirst] = useState<boolean>(true);
   const [page, setPage] = useState<number>(1);
-  const [searchVal, setSearchVal] = useState<string>('');
   const [isSearching, setIsSearching] = useState<boolean>(false);
   const history = useHistory();
+  const { searchVal, users, totalCount, setUsers, setSearchVal } = useContext(UserContext);
 
   useEffect(() => {
-    if (searchVal) {
+    console.log({searchVal});
+    
+    if (searchVal && searchVal.length > 0) {
       setIsSearching(true);
-      setResult([]);
       getAPI(API_URL.SEARCH_USER + `?q=${searchVal}&page=${page}`)
         .then((resp: any) => {
-          setTotalCount(resp.total_count.toString());
-          setResult(resp.items);
+          setIsFirst(false);
+          setUsers(resp);
           setIsSearching(false);
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
         })
         .catch((err: any) => {
-          alert(err.message);
+          toastError(err.message);
           setIsSearching(false);
         });
     }
-  }, [page, searchVal]);
+  }, [searchVal, page, setUsers]);
 
   const searchHandler = (value: string) => {
-    setSearchVal(value);
+    if(value)setSearchVal(value);
+    else toastError(`Please don't leave the input empty`)
   };
 
   const paginationHandler = (page: number) => {
@@ -55,21 +62,31 @@ export const HomePage = () => {
   return (
     <Container>
       <div style={{ margin: '100px 0px 16px', padding: '0 16px', width: '100%' }}>
+        {/* Search ANTD make an error. I can't do much for remove the errors */}
         <Search
           placeholder="Search github user"
+          defaultValue={searchVal}
           onSearch={searchHandler}
           loading={isSearching}
           disabled={isSearching}
+          enterButton
         />
       </div>
 
-      {totalCount && <Title level={4}>Found {totalCount}</Title>}
+      <div style={{ textAlign: 'center' }}>
+        {totalCount && (
+          <Title level={4}>
+            Found {totalCount} for {searchVal} user
+          </Title>
+        )}
+      </div>
+
       <div style={{ flex: 1, width: '100%', padding: '16px', overflowY: 'auto' }}>
         {isSearching && <Loader fullPage />}
-        {results.length > 0 ? (
+        {users && users.length > 0 ? (
           <Fragment>
             <Row justify="space-around" align="middle">
-              {results.map((user: User) => {
+              {users.map((user: User) => {
                 return (
                   <Col
                     span={11}
@@ -81,7 +98,7 @@ export const HomePage = () => {
                       flexDirection: 'column',
                       alignItems: 'center',
                       padding: '10px',
-                      marginBottom:'16px'
+                      marginBottom: '16px',
                     }}
                     onClick={() => history.push(`user/${user.login}`)}
                   >
@@ -99,7 +116,9 @@ export const HomePage = () => {
             </Row>
           </Fragment>
         ) : (
-          <Title level={4}>{isSearching ? '' : 'No Result'}</Title>
+          <div style={{ textAlign: 'center' }}>
+            <Title level={4}>{isFirst ? 'Welcome to Git-Peek :)' : isSearching ? '' : 'No Result'}</Title>
+          </div>
         )}
         <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0 40px' }}>
           <Pagination
