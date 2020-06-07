@@ -29,8 +29,6 @@ export const HomePage = () => {
   const { searchVal, users, totalCount, setUsers, setSearchVal } = useContext(UserContext);
 
   useEffect(() => {
-    console.log({searchVal});
-    
     if (searchVal && searchVal.length > 0) {
       setIsSearching(true);
       getAPI(API_URL.SEARCH_USER + `?q=${searchVal}&page=${page}`)
