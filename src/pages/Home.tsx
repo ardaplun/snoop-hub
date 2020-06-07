@@ -68,12 +68,13 @@ export const HomePage = () => {
           loading={isSearching}
           disabled={isSearching}
           enterButton
+          data-testid="input-search"
         />
       </div>
 
       <div style={{ textAlign: 'center' }}>
         {totalCount && (
-          <Title level={4}>
+          <Title level={4} data-testid="text-found">
             Found {totalCount} for {searchVal} user
           </Title>
         )}
@@ -99,6 +100,7 @@ export const HomePage = () => {
                       marginBottom: '16px',
                     }}
                     onClick={() => history.push(`user/${user.login}`)}
+                    data-testid={`result-search-${user.login}`}
                   >
                     <img
                       loading="lazy"
@@ -106,6 +108,7 @@ export const HomePage = () => {
                       alt={`Avatar of ${user.login}`}
                       width="60px"
                       height="60px"
+                      data-testid={`result-search-${user.login}-img`}
                     />
                     <b>{user.login}</b>
                   </Col>
@@ -115,7 +118,9 @@ export const HomePage = () => {
           </Fragment>
         ) : (
           <div style={{ textAlign: 'center' }}>
-            <Title level={4}>{isFirst ? 'Welcome to Snoop-hub :)' : isSearching ? '' : 'No Result'}</Title>
+            <Title level={4} data-testid={isFirst ? `text-welcome` : 'text-no-result'}>
+              {isFirst ? 'Welcome to Snoop-hub :)' : isSearching ? '' : 'No Result'}
+            </Title>
           </div>
         )}
         <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0 40px' }}>
@@ -127,6 +132,7 @@ export const HomePage = () => {
             showSizeChanger={false}
             onChange={paginationHandler}
             hideOnSinglePage={true}
+            data-testid='pagination'
           />
         </div>
       </div>
