@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Typography, Button, PageHeader } from 'antd';
+import { Row, Col, Typography, Button, PageHeader, Menu, Dropdown } from 'antd';
 import { useParams, useHistory } from 'react-router-dom';
 import Container from '../components/container';
 import { getAPI } from '../api/api-method';
@@ -37,6 +37,29 @@ export const UserPage = () => {
       });
   }, [userName]);
 
+  const downloadHandler = (repoName:string, format:any) => {
+    console.log({format});
+    getAPI(API_URL.DOWNLOAD_REPO(userName, repoName, format))
+      .then((resp: any) => {
+        setIsLoading(false);
+        console.log(resp);
+      })
+      .catch((err: any) => {
+        setIsLoading(false);
+        alert(err.message);
+      });
+  }
+
+  const cloneHanlder = (link: string) => {
+    const tempInput = document.createElement('input');
+    tempInput.value = link;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    alert('Link copied!');
+  };
+
   return (
     <Container>
       <PageHeader
@@ -46,7 +69,7 @@ export const UserPage = () => {
       />
       {isLoading && <Loader />}
       {projects.length > 0 ? (
-        <Row style={{ margin: '40px 0' }}>
+        <Row style={{ padding: '40px 16px', overflowY:'auto' }}>
           {projects.map((project: RepoType) => {
             return (
               <Col
@@ -60,8 +83,22 @@ export const UserPage = () => {
                 <br />
                 <span>{project.language && `Language: ${project.language}`}</span>
                 <Row justify="space-around" align="middle" style={{ margin: '16px 0 0' }}>
-                  <Button style={{ backgroundColor: '#52c41a', color: 'white' }}>Download</Button>
-                  <Button style={{ backgroundColor: '#13c2c2', color: 'white' }}>Clone</Button>
+                  <Dropdown
+                    overlay={
+                      <Menu onClick={({ key }: { key: string }) => downloadHandler(project.name, key)}>
+                        <Menu.Item key="tarball">Download Tar</Menu.Item>
+                        <Menu.Item key="zipball">Download Zip</Menu.Item>
+                      </Menu>
+                    }
+                  >
+                    <Button style={{ backgroundColor: '#52c41a', color: 'white' }}>Download</Button>
+                  </Dropdown>
+                  <Button
+                    style={{ backgroundColor: '#13c2c2', color: 'white' }}
+                    onClick={() => cloneHanlder(project.clone_url)}
+                  >
+                    Clone
+                  </Button>
                   <Button
                     style={{ backgroundColor: '#1890ff', color: 'white' }}
                     onClick={() => history.push(`${userName}/repo/${project.name}`)}

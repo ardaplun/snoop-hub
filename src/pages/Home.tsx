@@ -54,23 +54,25 @@ export const HomePage = () => {
 
   return (
     <Container>
-      <Search
-        placeholder="Search github user"
-        onSearch={searchHandler}
-        loading={isSearching}
-        disabled={isSearching}
-        style={{ margin: '100px 0px 16px' }}
-      />
-      <div style={{ flex: 1, width: '100%' }}>
+      <div style={{ margin: '100px 0px 16px', padding: '0 16px', width: '100%' }}>
+        <Search
+          placeholder="Search github user"
+          onSearch={searchHandler}
+          loading={isSearching}
+          disabled={isSearching}
+        />
+      </div>
+
+      {totalCount && <Title level={4}>Found {totalCount}</Title>}
+      <div style={{ flex: 1, width: '100%', padding: '16px', overflowY: 'auto' }}>
         {isSearching && <Loader fullPage />}
-        {totalCount && <Title level={4}>Found {totalCount}</Title>}
         {results.length > 0 ? (
           <Fragment>
             <Row justify="space-around" align="middle">
               {results.map((user: User) => {
                 return (
                   <Col
-                    span={12}
+                    span={11}
                     key={user.id}
                     style={{
                       border: '1px solid #ccc',
@@ -79,6 +81,7 @@ export const HomePage = () => {
                       flexDirection: 'column',
                       alignItems: 'center',
                       padding: '10px',
+                      marginBottom:'16px'
                     }}
                     onClick={() => history.push(`user/${user.login}`)}
                   >

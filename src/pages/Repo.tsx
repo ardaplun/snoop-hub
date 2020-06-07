@@ -30,8 +30,8 @@ export const RepoPage = () => {
   return (
     <Container>
       <PageHeader onBack={() => history.goBack()} title={`${repoName} Readme`} style={{borderBottom:'1px solid #ccc', width:'100%'}}/>
-      {isLoading && <Loader />}
-      <div style={{textAlign:'left', margin:'40px 0'}}>{readme ? <ReactMarkdown source={window.atob(readme)} /> : ''}</div>
+      {isLoading && <Loader fullPage/>}
+      <div style={{textAlign:'left', padding:'40px 16px', overflow:'auto', width:'100%'}}>{readme ? <ReactMarkdown source={window.atob(readme)} /> : ''}</div>
     </Container>
   );
 }
