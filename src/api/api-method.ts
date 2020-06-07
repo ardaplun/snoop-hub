@@ -5,11 +5,15 @@ export const getAPI = (url: string) => {
     try {
       const response = await axios({
         method: 'GET',
-        url: url
+        url: url,
       });
-      resolve(response);
+      resolve(response.data);
     } catch (error) {
-      reject(error);
+      reject(
+        error && error.response && error.response.data
+          ? error.response.data
+          : { message: 'Error happens sometimes, its not your mistake.' },
+      );
     }
   });
-}
+};

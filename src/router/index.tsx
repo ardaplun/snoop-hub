@@ -7,7 +7,7 @@ const NotFound = lazy(() => import('../pages/NotFound'));
 export const Routes = () => {
   return (
     <BrowserRouter>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader fullPage />}>
         <Switch>
           <Route path="/" exact={true} component={Home} />
           <Route path="/page-not-found" exact={true} component={NotFound} />
