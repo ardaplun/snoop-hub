@@ -1,7 +1,9 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Loader from '../components/loader';
 const Home = lazy(() => import('../pages/Home'));
+const User = lazy(() => import('../pages/User'));
+const Repo = lazy(() => import('../pages/Repo'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
 export const Routes = () => {
@@ -10,8 +12,10 @@ export const Routes = () => {
       <Suspense fallback={<Loader fullPage />}>
         <Switch>
           <Route path="/" exact={true} component={Home} />
+          <Route path="/user/:userName" exact={true} component={User} />
+          <Route path="/user/:userName/repo/:repoName" exact={true} component={Repo} />
           <Route path="/page-not-found" exact={true} component={NotFound} />
-          <Redirect path="*" to="/page-not-found" />
+          {/* <Redirect path="*" to="/page-not-found" /> */}
         </Switch>
       </Suspense>
     </BrowserRouter>

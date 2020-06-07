@@ -25,21 +25,22 @@ export const HomePage = () => {
   const [page, setPage] = useState<number>(1);
   const [searchVal, setSearchVal] = useState<string>('');
   const [isSearching, setIsSearching] = useState<boolean>(false);
-  const history = useHistory()
+  const history = useHistory();
 
   useEffect(() => {
     if (searchVal) {
       setIsSearching(true);
       setResult([]);
-      getAPI(API_URL.SEARCH_USER + `?q=${searchVal}&page=${page}`).then((resp: any) => {
-        setTotalCount(resp.total_count.toString());
-        setResult(resp.items);
-        setIsSearching(false);
-      })
-      .catch((err:any)=>{
-        alert(err.message)
-        setIsSearching(false);
-      })
+      getAPI(API_URL.SEARCH_USER + `?q=${searchVal}&page=${page}`)
+        .then((resp: any) => {
+          setTotalCount(resp.total_count.toString());
+          setResult(resp.items);
+          setIsSearching(false);
+        })
+        .catch((err: any) => {
+          alert(err.message);
+          setIsSearching(false);
+        });
     }
   }, [page, searchVal]);
 
@@ -79,7 +80,7 @@ export const HomePage = () => {
                       alignItems: 'center',
                       padding: '10px',
                     }}
-                    onClick={()=>history.push(`user/${user.login}`)}
+                    onClick={() => history.push(`user/${user.login}`)}
                   >
                     <img
                       loading="lazy"
