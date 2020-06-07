@@ -18,8 +18,6 @@ export const RepoPage = () => {
       .then((resp: any) => {
         setReadme(resp.content);
         setIsLoading(false);
-        console.log(resp);
-        console.log(window.atob(resp.content));
       })
       .catch((err: any) => {
         setIsLoading(false);

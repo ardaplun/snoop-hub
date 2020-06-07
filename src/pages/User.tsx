@@ -28,7 +28,6 @@ export const UserPage = () => {
     getAPI(API_URL.USER_REPOS(userName))
       .then((resp: any) => {
         setIsLoading(false);
-        console.log(resp);
         setProjects(resp);
       })
       .catch((err: any) => {
@@ -38,11 +37,9 @@ export const UserPage = () => {
   }, [userName]);
 
   const downloadHandler = (repoName:string, format:any) => {
-    console.log({format});
     getAPI(API_URL.DOWNLOAD_REPO(userName, repoName, format))
       .then((resp: any) => {
         setIsLoading(false);
-        console.log(resp);
       })
       .catch((err: any) => {
         setIsLoading(false);
