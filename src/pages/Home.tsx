@@ -117,7 +117,7 @@ export const HomePage = () => {
           </Fragment>
         ) : (
           <div style={{ textAlign: 'center' }}>
-            <Title level={4}>{isFirst ? 'Welcome to Git-Peek :)' : isSearching ? '' : 'No Result'}</Title>
+            <Title level={4}>{isFirst ? 'Welcome to Snoop-hub :)' : isSearching ? '' : 'No Result'}</Title>
           </div>
         )}
         <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0 40px' }}>
