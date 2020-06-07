@@ -6,6 +6,7 @@ import { API_URL } from '../api/api-url';
 import { PageHeader } from 'antd';
 import ReactMarkdown from 'react-markdown'
 import Loader from '../components/loader';
+import { toastError } from '../utils/toast';
 
 export const RepoPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -21,7 +22,7 @@ export const RepoPage = () => {
       })
       .catch((err: any) => {
         setIsLoading(false);
-        alert(err.message);
+        toastError(err.message);
       });
   },[userName, repoName])
 

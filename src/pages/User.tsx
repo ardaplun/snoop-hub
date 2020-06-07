@@ -6,6 +6,7 @@ import { getAPI } from '../api/api-method';
 import { API_URL } from '../api/api-url';
 import Loader from '../components/loader';
 import { RepoType, RepoContext } from '../context/repoContext';
+import { toastError } from '../utils/toast';
 const { Title } = Typography;
 
 export const UserPage = () => {
@@ -23,7 +24,7 @@ export const UserPage = () => {
       })
       .catch((err: any) => {
         setIsLoading(false);
-        alert(err.message);
+        toastError(err.message);
       });
   }, [userName, setRepos]);
 
@@ -34,7 +35,7 @@ export const UserPage = () => {
       })
       .catch((err: any) => {
         setIsLoading(false);
-        alert(err.message);
+        toastError(err.message);
       });
   }
 
