@@ -6,7 +6,7 @@ import { getAPI } from '../api/api-method';
 import { API_URL } from '../api/api-url';
 import Loader from '../components/loader';
 import { RepoType, RepoContext } from '../context/repoContext';
-import { toastError } from '../utils/toast';
+import { toastError, toastInfo } from '../utils/toast';
 const { Title } = Typography;
 
 export const UserPage = () => {
@@ -46,7 +46,7 @@ export const UserPage = () => {
     tempInput.select();
     document.execCommand('copy');
     document.body.removeChild(tempInput);
-    alert('Link copied!');
+    toastInfo('Link copied!');
   };
 
   return (
